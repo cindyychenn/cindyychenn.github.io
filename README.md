@@ -1,2 +1,2 @@
 # cindyychenn.github.io
-solving problems though coding learning
+solving problems through coding learning
