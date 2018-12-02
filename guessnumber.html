@@ -74,12 +74,13 @@
 			<h3>Guess a number between 1 and 200 </h3>
 			<h3> You only have ten tries! </h3>
 			<input type="text" value=""></input>
-			<button class="button"><span>Check Your Guess</span></button>
+			<button class="button" id="check"><span>Check Your Guess</span></button>
 		 </li>
 		 <li>
 			<h3 id="times">Number of times guessed: 0</h3>
 			<h3 id="history">Numbers guessed: </h3>
 			<h3 id="result"></h3>
+			<button class="button" id="reset"><span>Reset the Game</span></button>
 		 </li>
 	</ul>
 </div>
@@ -90,9 +91,8 @@
 	function check() {
 		count = count + 1;
 		if (count > 10){
-			resultElm.innerHTML = "Good try, game over. Refresh the page to start again."
+			resultElm.innerHTML = "Good try, game over. Click the reset button."
 			resultElm.style.color = "#00008b";
-			resultElm.style.backgroundColor = "red";
 			return;
 		}
 		document.querySelector("#times").innerHTML = "Number of times guessed " + count;
@@ -122,7 +122,15 @@
 			resultElm.style.color = "#00008b";
 		}
 	}
-	document.querySelector("button").onclick = check;
+	document.querySelector("#check").onclick = check;
+	function reset() {
+		number = Math.floor(Math.random() * 199 ) + 1;
+		count = 0;
+		resultElm.innerHTML = "";
+		document.querySelector("#times").innerHTML = "Number of times guessed " + count;
+		document.querySelector("#history").innerHTML = "Numbers guessed: ";
+	}
+	document.querySelector("#reset").onclick = reset;
 </script>
 </body>
 </html>
